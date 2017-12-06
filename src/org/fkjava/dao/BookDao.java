@@ -24,7 +24,7 @@ public class BookDao {
 			con = ConnectionFactory.getConnection();
 			//准备Sql
 			String sql = "insert into tb_book(name,author,publication,"
-					+ "price,remark,publicationdate)values(?,?,?,?,?,?)";
+					+ "price,remark,image,publicationdate)values(?,?,?,?,?,?,?)";
 			pstm = con.prepareStatement(sql);
 			//给占位符赋值
 			pstm.setObject(1, book.getName());
@@ -32,7 +32,9 @@ public class BookDao {
 			pstm.setObject(3, book.getPublication());
 			pstm.setObject(4, book.getPrice());
 			pstm.setObject(5, book.getRemark());
-			pstm.setObject(6, new Date());
+			pstm.setObject(6, book.getImage());
+			pstm.setObject(7, new Date());
+			
 			//执行sql
 			pstm.executeUpdate();
 		}catch(Exception e){
