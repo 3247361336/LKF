@@ -25,6 +25,7 @@ public class BookDao {
 			//准备Sql
 			String sql = "insert into tb_book(name,author,publication,"
 					+ "price,remark,image,publicationdate)values(?,?,?,?,?,?,?)";
+			
 			pstm = con.prepareStatement(sql);
 			//给占位符赋值
 			pstm.setObject(1, book.getName());
@@ -55,6 +56,7 @@ public class BookDao {
 			con = ConnectionFactory.getConnection();
 			//准备sql语句
 			String sql="select * from tb_book";
+			
 			pstm = con.prepareStatement(sql);
  			//查询后会返回结果集
 			rs=pstm.executeQuery();
@@ -144,7 +146,7 @@ public class BookDao {
 		
 	}
 
-	public void update(String name, String author, Double price, Integer id) {
+	public void update(String name, String author,  Double price, String image,Integer id) {
 		// TODO Auto-generated method stub
 		Connection con=null;
 		PreparedStatement pstm=null;
@@ -152,13 +154,14 @@ public class BookDao {
 			//获得数据库连接
 			con=ConnectionFactory.getConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append(" update tb_book set name = ?,author = ?,price = ?");
+			sql.append(" update tb_book set name = ?,author = ?,price = ?,image = ?");
 			sql.append(" where id = ?");
 			pstm=con.prepareStatement(sql.toString());
 			pstm.setObject(1, name);
 			pstm.setObject(2, author);
 			pstm.setObject(3, price);
-			pstm.setObject(4, id);
+			pstm.setObject(4, image);
+			pstm.setObject(5, id);
 			//执行sql
 			pstm.executeUpdate();
 		} catch (Exception e) {

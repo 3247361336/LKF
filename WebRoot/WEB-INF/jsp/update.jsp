@@ -11,9 +11,11 @@
 		<!-- action是提交到那个资源处理 ，method是提交的方式 -->
 		<form action="update" method="post">
 			<input type="hidden" name="id" value="${book.id }" />
+			
 			<p>书名:<input type="text" name="name" value="${book.name }" /></p>
 			<p>作者:<input type="text" name="author" value="${book.author }" /></p>
 			<p>价钱:<input type="text" name="price" value="${book.price }" /></p>
+			<p>图片名:<input type="text" name="image" value="${book.image }" /></p>
 			<p>
 				<input type="submit" value="修改"/>
 				<input type="button" value="取消"	 onclick="location='main'"/>
