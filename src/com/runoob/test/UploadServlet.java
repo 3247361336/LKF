@@ -65,7 +65,7 @@ public class UploadServlet extends HttpServlet {
 
         // 构造临时路径来存储上传的文件
         // 这个路径相对当前应用的目录
-        String uploadPath = "E:\GitHub\LKF\WebRoot\images";
+        String uploadPath = "E:/GitHub/LKF/WebRoot/images";
        
          
         // 如果目录不存在则创建
