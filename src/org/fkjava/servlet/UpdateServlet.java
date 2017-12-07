@@ -39,12 +39,13 @@ public class UpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//接收id，name，author，price
 		Integer id=Integer.valueOf(request.getParameter("id"));
+		String image=request.getParameter("image");
 		String name=request.getParameter("name");
 		String author=request.getParameter("author");
 		Double price=Double.valueOf(request.getParameter("price"));
 		//
 		BookDao dao=new BookDao();
-		dao.update(name,author,price,id);
+		dao.update(name,author,price,image,id);
 		//跳转客户端跳转
 		response.sendRedirect("main");
 	}
